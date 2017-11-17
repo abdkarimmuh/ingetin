@@ -1,1 +1,6 @@
-"# ingetin \n develop by : Karim, Taufiq, Jafier" 
+Ingetin
+
+Develop by
+- Taufiq
+- Karim
+- Javier
