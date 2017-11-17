@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Ingetin</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_activity_main">Beranda</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Beranda</item>
+        <item>Profil</item>
+        <item>Panel Tugas</item>
+        <item>Panel Organisasi</item>
+        <item>Pengaturan</item>
+    </string-array>
+</resources>
