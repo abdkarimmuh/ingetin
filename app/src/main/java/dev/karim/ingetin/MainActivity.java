@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
 
-    // index to identify current nav menu item
-    private int navItemIndex = 0;
-
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
@@ -109,14 +106,6 @@ public class MainActivity extends AppCompatActivity
 //        mDrawerToggle.syncState();
     }
 
-    void setNavItemIndex(int navItemIndex){
-        this.navItemIndex = navItemIndex;
-    }
-
-    int getNavItemIndex(){
-        return this.navItemIndex;
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -127,41 +116,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        if (getNavItemIndex() == 0) {
-//            getMenuInflater().inflate(R.menu.main, menu);
-//        } else {
-//            getMenuInflater().inflate(R.menu.menu_empty, menu);
-//        }
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_add) {
-//            Toast.makeText(getApplicationContext(),"Tambah", Toast.LENGTH_SHORT).show();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -170,32 +124,26 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_beranda) {
-            setNavItemIndex(0);
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[0]);
         } else if (id == R.id.nav_profil) {
-            setNavItemIndex(1);
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new ProfilFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[1]);
         } else if (id == R.id.nav_tugas) {
-            setNavItemIndex(2);
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new PanelTugasFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[2]);
         } else if (id == R.id.nav_organisasi) {
-            setNavItemIndex(3);
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new PanelOrganisasiFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[3]);
         } else if (id == R.id.nav_pengaturan) {
-            setNavItemIndex(4);
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new PengaturanFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[4]);
         } else if (id == R.id.nav_tentang) {
-            setNavItemIndex(5);
             Intent profile = new Intent (MainActivity.this, TentangKamiActivity.class);
             startActivity(profile);
         }
