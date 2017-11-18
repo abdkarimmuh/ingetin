@@ -1,8 +1,9 @@
-package dev.karim.ingetin.beranda;
+package dev.karim.ingetin.Beranda;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,15 +13,17 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import dev.karim.ingetin.R;
+import dev.karim.ingetin.AddActivity.AddTugasActivity;
 
 /**
  * Created by Karim on 11/17/2017.
  */
 
-public class LainnyaFragment extends Fragment {
+public class TugasFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_lainnya, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tugas, container, false);
         return rootView;
     }
 
@@ -40,7 +43,9 @@ public class LainnyaFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Toast.makeText(getContext(), "Lainnya", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Tugas", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this.getContext(), AddTugasActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

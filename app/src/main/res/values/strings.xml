@@ -4,11 +4,11 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="title_activity_main">Beranda</string>
+    <string name="title_activity_main">Ingetin</string>
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_item_activity_titles">
-        <item>Beranda</item>
+        <item>Ingetin</item>
         <item>Profil</item>
         <item>Panel Tugas</item>
         <item>Panel Organisasi</item>

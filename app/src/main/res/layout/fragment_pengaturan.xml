@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:orientation="vertical"
+    tools:context="dev.karim.ingetin.Fragment.PengaturanFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pengaturan"/>
+    <RelativeLayout
+        android:background="#FFF"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_pengaturan_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Alarm"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#FFF"
+        android:id="@+id/btn_pengaturan_peringatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Peringatan"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#FFF"
+        android:id="@+id/btn_pengaturan_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Edit User"/>
+    </RelativeLayout>>
+
+    <RelativeLayout
+        android:background="#FFF"
+        android:id="@+id/btn_pengaturan_tema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Tema"/>
+    </RelativeLayout>
 
 </LinearLayout>

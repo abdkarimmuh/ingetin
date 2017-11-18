@@ -1,4 +1,4 @@
-package dev.karim.ingetin.beranda;
+package dev.karim.ingetin.Beranda;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

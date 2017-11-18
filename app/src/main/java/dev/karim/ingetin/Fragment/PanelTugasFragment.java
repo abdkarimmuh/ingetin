@@ -1,4 +1,4 @@
-package dev.karim.ingetin.fragment;
+package dev.karim.ingetin.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,10 +12,10 @@ import dev.karim.ingetin.R;
  * Created by Karim on 11/17/2017.
  */
 
-public class ProfilFragment extends Fragment {
+public class PanelTugasFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_profil, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_panel_tugas, container, false);
         return rootView;
     }
 }

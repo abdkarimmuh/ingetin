@@ -1,4 +1,4 @@
-package dev.karim.ingetin.fragment;
+package dev.karim.ingetin.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

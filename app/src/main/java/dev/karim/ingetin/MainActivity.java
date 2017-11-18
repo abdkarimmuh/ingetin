@@ -10,15 +10,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import dev.karim.ingetin.beranda.TabFragment;
-import dev.karim.ingetin.fragment.PanelOrganisasiFragment;
-import dev.karim.ingetin.fragment.PanelTugasFragment;
-import dev.karim.ingetin.fragment.PengaturanFragment;
-import dev.karim.ingetin.fragment.ProfilFragment;
+import dev.karim.ingetin.Beranda.TabFragment;
+import dev.karim.ingetin.Fragment.PanelOrganisasiFragment;
+import dev.karim.ingetin.Fragment.PanelTugasFragment;
+import dev.karim.ingetin.Fragment.PengaturanFragment;
+import dev.karim.ingetin.Fragment.ProfilFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -137,8 +135,11 @@ public class MainActivity extends AppCompatActivity
             getSupportActionBar().setTitle(activityTitles[2]);
         } else if (id == R.id.nav_organisasi) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.containerView,new PanelOrganisasiFragment()).commit();
+            fragmentTransaction.replace(R.id.containerView, new PanelOrganisasiFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[3]);
+        } else if (id == R.id.nav_artikel) {
+                Intent profile = new Intent (MainActivity.this, ArtikelActivity.class);
+                startActivity(profile);
         } else if (id == R.id.nav_pengaturan) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new PengaturanFragment()).commit();

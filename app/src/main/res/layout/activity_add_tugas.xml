@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dev.karim.ingetin.AddActivity.AddTugasActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul Tugas"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <EditText
+                android:id="@+id/edit_text_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Judul"/>
+
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Mata Pelajaran / Mata Kuliah"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <Spinner
+                android:id="@+id/spinner_text_jenis"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deadline (e.g 23/04/2017)"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <EditText
+                android:id="@+id/edit_text_deadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Deadline"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah Selesai?"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <Switch
+                android:id="@+id/switch_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selesai" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <EditText
+                android:id="@+id/edit_text_deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Deskripsi"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

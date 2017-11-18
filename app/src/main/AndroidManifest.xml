@@ -23,7 +23,33 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TentangKamiActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".TentangKamiActivity"
+            android:label="Tentang Kami"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity.AddTugasActivity"
+            android:label="Tambah Tugas"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity.AddOrganisasiActivity"
+            android:label="Tambah Organisasi"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity.AddLainnyaActivity"
+            android:label="Tambah Lainnya"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ArtikelActivity"
+            android:label="Artikel"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".EditUserActivity"
+            android:label="Edit User"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".PeringatanActivity"
+            android:label="Pengaturan Peringatan"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
