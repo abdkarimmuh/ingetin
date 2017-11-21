@@ -19,12 +19,12 @@ public class DBSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DBContract.Tugas.CREATE_TABLE);
+        db.execSQL(DBContract.Tugas.CREATE_TABLE_TUGAS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DBContract.Tugas.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DBContract.Tugas.TABLE_NAME_TUGAS);
         onCreate(db);
     }
 }

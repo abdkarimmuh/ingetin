@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Masukan mapel/matkul" />
+            android:hint="Masukan Mata Pelajaran / Kuliah" />
 
         <ImageView
             android:id="@+id/button_send"

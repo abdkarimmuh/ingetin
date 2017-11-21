@@ -1,18 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="dev.karim.ingetin.Fragment.ProfilFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <FrameLayout
+                android:layout_centerInParent="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp">
+
+                <android.support.v7.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:layout_width="230dp"
+                    android:layout_height="285dp"
+                    android:layout_gravity="top">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@android:drawable/sym_def_app_icon"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Muhammad Abdul Karim"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_marginTop="30dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Teknik Informatika"
+                            android:textStyle="bold"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0110215053"
+                            android:textSize="12sp"
+                            android:textStyle="italic"/>
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STT Terpadu Nurul Fikri"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_marginTop="10dp"
+                            android:layout_width="170dp"
+                            android:layout_height="1dp"
+                            android:background="@color/cardview_dark_background"/>
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MENKO SOSPOL"
+                            android:textStyle="bold"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BEM STT NF 2017"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    app:cardCornerRadius="15dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_gravity="bottom|center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        android:text="EDIT"/>
+
+                </android.support.v7.widget.CardView>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

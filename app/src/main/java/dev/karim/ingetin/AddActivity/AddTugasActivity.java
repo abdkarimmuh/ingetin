@@ -92,9 +92,9 @@ public class AddTugasActivity extends AppCompatActivity {
                 Toast.makeText(this, "Date is in the wrong format", Toast.LENGTH_LONG).show();
                 return;
             }
-            database.insert(DBContract.Tugas.TABLE_NAME, null, values);
+            database.insert(DBContract.Tugas.TABLE_NAME_TUGAS, null, values);
 
-            Toast.makeText(this, "The new Row Id is " + database.insert(DBContract.Tugas.TABLE_NAME, null, values),
+            Toast.makeText(this, "The new Row Id is " + database.insert(DBContract.Tugas.TABLE_NAME_TUGAS, null, values),
                     Toast.LENGTH_LONG).show();
         } else {
             long date;
@@ -110,7 +110,7 @@ public class AddTugasActivity extends AppCompatActivity {
                     return;
                 }
                 database.beginTransaction();
-                database.execSQL("UPDATE " + DBContract.Tugas.TABLE_NAME +
+                database.execSQL("UPDATE " + DBContract.Tugas.TABLE_NAME_TUGAS +
                         " SET " + DBContract.Tugas.COLUMN_JUDUL + "='" + edit_text_judul.getText().toString() +
                         "', " + DBContract.Tugas.COLUMN_JENIS + "='" + spinner_text_jenis.getOnItemSelectedListener().toString() +
                         "', " + DBContract.Tugas.COLUMN_DESKRIPSI + "='" + edit_text_deskripsi.getText().toString() +
@@ -126,7 +126,7 @@ public class AddTugasActivity extends AppCompatActivity {
 
     public boolean CheckData(String judul) {
         SQLiteDatabase sqldb = new DBSQLiteHelper(this).getWritableDatabase();
-        String Query = "SELECT * FROM " + DBContract.Tugas.TABLE_NAME + " WHERE judul='" + judul + "'";
+        String Query = "SELECT * FROM " + DBContract.Tugas.TABLE_NAME_TUGAS + " WHERE judul='" + judul + "'";
         Cursor cursor = sqldb.rawQuery(Query, null);
         if(cursor.getCount() <= 0){
             cursor.close();
