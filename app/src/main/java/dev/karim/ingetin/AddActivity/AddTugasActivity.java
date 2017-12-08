@@ -59,7 +59,7 @@ public class AddTugasActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_check:
                 Toast.makeText(getApplicationContext(), "Save", Toast.LENGTH_SHORT).show();
-                saveToDB();
+                this.saveToDB();
                 break;
 
             case R.id.action_delete:
@@ -78,6 +78,7 @@ public class AddTugasActivity extends AppCompatActivity {
             values.put(DBContract.Tugas.COLUMN_JENIS, spinner_text_jenis.getOnItemSelectedListener().toString());
             values.put(DBContract.Tugas.COLUMN_DONE, switch_done.getText().toString());
             values.put(DBContract.Tugas.COLUMN_DESKRIPSI, edit_text_deskripsi.getText().toString());
+            values.put(DBContract.Tugas.COLUMN_CREATE, Calendar.getInstance().getTime().toString());
 
             try {
                 Calendar calendar = Calendar.getInstance();
@@ -85,8 +86,6 @@ public class AddTugasActivity extends AppCompatActivity {
                         edit_text_deadline.getText().toString()));
                 long date = calendar.getTimeInMillis();
                 values.put(DBContract.Tugas.COLUMN_DEADLINE, date);
-
-                values.put(DBContract.Tugas.COLUMN_CREATE, Calendar.getInstance().getTime().toString());
             } catch (Exception e) {
                 Log.e(TAG, "Error", e);
                 Toast.makeText(this, "Date is in the wrong format", Toast.LENGTH_LONG).show();

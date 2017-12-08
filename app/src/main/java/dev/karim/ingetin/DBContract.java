@@ -22,6 +22,7 @@ public final class DBContract {
 //    final static String COLUMN_DONE = "done";
 
     public static class Tugas implements BaseColumns{
+
         public static final String TABLE_NAME_TUGAS = "table_tugas";
 
         public static final String COLUMN_ID = "id";
@@ -32,7 +33,7 @@ public final class DBContract {
         public static final String COLUMN_CREATE = "create";
         public static final String COLUMN_DONE = "done";
 
-        public static final String CREATE_TABLE_TUGAS = "CREATE TABLE " +
+        public static final String CREATE_TABLE_TUGAS = "CREATE TABLE IF NOT EXISTS " +
                 TABLE_NAME_TUGAS + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_JUDUL + " TEXT, " +
