@@ -51,6 +51,11 @@ public class BaseApp extends Application {
                         .addField("presensi", String.class)
                         .addField("notulensi", String.class)
                         .addField("done", String.class);
+                schema.create("Lainnya")
+                        .addField("judul", String.class)
+                        .addField("deadline", String.class)
+                        .addField("deskripsi", String.class)
+                        .addField("done", String.class);
                 oldVersion++;
             }
         }

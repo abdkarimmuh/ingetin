@@ -22,7 +22,8 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_judul"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
                 <EditText
                     android:id="@+id/edit_text_judul"
@@ -35,38 +36,65 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_deadline"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
                 <EditText
                     android:id="@+id/edit_text_deadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Deadline (e.g 23/04/2017)"
-                    android:inputType="text" />
+                    android:inputType="datetime" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_deskripsi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
                 <EditText
                     android:id="@+id/edit_text_deskripsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="textMultiLine"
-                    android:inputType="text" />
+                    android:hint="Deskripsi"
+                    android:inputType="textMultiLine" />
             </android.support.design.widget.TextInputLayout>
 
             <Switch
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:padding="15dp"
                 android:id="@+id/switch_done"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Selesai" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Delete"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textColor="#FFF"
+                    android:visibility="gone"/>
+
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textColor="#FFF"
+                    android:text="save" />
+            </LinearLayout>
 
         </LinearLayout>
 

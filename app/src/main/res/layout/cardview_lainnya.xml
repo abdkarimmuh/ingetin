@@ -37,13 +37,6 @@
                     android:textColor="#000"/>
 
                 <TextView
-                    android:id="@+id/txt_jenis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Organisasi"
-                    android:textSize="14sp"/>
-
-                <TextView
                     android:id="@+id/txt_deadline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

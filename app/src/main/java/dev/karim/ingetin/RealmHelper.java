@@ -6,8 +6,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dev.karim.ingetin.Model.LainnyaModel;
 import dev.karim.ingetin.Model.OrganisasiModel;
 import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.RealmObject.Lainnya;
 import dev.karim.ingetin.RealmObject.Organisasi;
 import dev.karim.ingetin.RealmObject.Tugas;
 import io.realm.Realm;
@@ -25,6 +27,7 @@ public class RealmHelper {
     private Realm realm;
     private RealmResults<Organisasi> realmResultOrganisasi;
     private RealmResults<Tugas> realmResultTugas;
+    private RealmResults<Lainnya> realmResultLainnya;
     public Context context;
 
     /**
@@ -98,6 +101,32 @@ public class RealmHelper {
         showToast(judul + " berhasil disimpan");
     }
 
+    /**
+     * menambah data
+     *
+     * @param judul
+     * @param deadline
+     * @param deskripsi
+     * @param done
+     */
+    public void addLainnya(String judul, String deadline, String deskripsi, String done){
+        Lainnya lainnya = new Lainnya();
+        lainnya.setId((int) (System.currentTimeMillis() / 1000));
+        lainnya.setJudul(judul);
+        lainnya.setDeadline(deadline);
+        lainnya.setDeskripsi(deskripsi);
+        lainnya.setDone(done);
+
+        realm.beginTransaction();
+        realm.copyToRealm(lainnya);
+        realm.commitTransaction();
+
+        showLog("Added ; " + judul);
+        showToast(judul + " berhasil disimpan");
+    }
+
+
+
 
 
     /**
@@ -160,6 +189,35 @@ public class RealmHelper {
         return data;
     }
 
+    /**
+     * method mencari semua Lainnya
+     */
+    public ArrayList<LainnyaModel> findAllLainnya(){
+        ArrayList<LainnyaModel> data = new ArrayList<>();
+
+        realmResultLainnya = realm.where(Lainnya.class).findAll();
+        realmResultLainnya.sort("id", Sort.ASCENDING);
+        if (realmResultLainnya.size() > 0){
+            showLog("Size : " + realmResultLainnya.size());
+
+            for (int i = 0; i < realmResultLainnya.size(); i++) {
+                String judul, jenis, deadline, deskripsi, done;
+                int id = realmResultLainnya.get(i).getId();
+                judul = realmResultLainnya.get(i).getJudul();
+                deadline = realmResultLainnya.get(i).getDeadline();
+                deskripsi = realmResultLainnya.get(i).getDeskripsi();
+                done = realmResultLainnya.get(i).getDone();
+                data.add(new LainnyaModel(id, judul, deadline, deskripsi, done));
+            }
+
+        } else {
+            showLog("Size : 0");
+        }
+
+        return data;
+    }
+
+
 
 
 
@@ -215,10 +273,26 @@ public class RealmHelper {
     }
 
     /**
-     * method menghapus Organisasi berdasarkan id
+     * method update Lainnya
      *
      * @param id
+     * @param judul
+     * @param deadline
+     * @param deskripsi
+     * @param done
      */
+    public void updateLainnya(int id, String judul, String deadline, String deskripsi, String done){
+        realm.beginTransaction();
+        Lainnya lainnya = realm.where(Lainnya.class).equalTo("id", id).findFirst();
+        lainnya.setJudul(judul);
+        lainnya.setDeadline(deadline);
+        lainnya.setDeskripsi(deskripsi);
+        lainnya.setDone(done);
+        realm.commitTransaction();
+        showLog("Updated : " + judul);
+        showToast(judul + " berhasil diupdate.");
+    }
+
 
 
 
@@ -228,7 +302,6 @@ public class RealmHelper {
      *
      * @param id
      */
-
     public void deleteTugas(int id) {
         realm.beginTransaction();
         RealmResults<Tugas> dataResults = realm.where(Tugas.class).equalTo("id", id).findAll();
@@ -240,9 +313,30 @@ public class RealmHelper {
         showToast("Hapus data berhasil.");
     }
 
+    /**
+     * method menghapus Organisasi berdasarkan id
+     *
+     * @param id
+     */
     public void deleteOrganisasi(int id) {
         realm.beginTransaction();
         RealmResults<Organisasi> dataResults = realm.where(Organisasi.class).equalTo("id", id).findAll();
+
+        dataResults.deleteAllFromRealm();
+
+        realm.commitTransaction();
+
+        showToast("Hapus data berhasil.");
+    }
+
+    /**
+     * method menghapus Lainnya berdasarkan id
+     *
+     * @param id
+     */
+    public void deleteLainnya(int id) {
+        realm.beginTransaction();
+        RealmResults<Lainnya> dataResults = realm.where(Lainnya.class).equalTo("id", id).findAll();
 
         dataResults.deleteAllFromRealm();
 
