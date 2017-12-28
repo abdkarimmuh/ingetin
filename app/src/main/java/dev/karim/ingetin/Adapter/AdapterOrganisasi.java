@@ -1,6 +1,5 @@
 package dev.karim.ingetin.Adapter;
 
-
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,39 +11,40 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Model.OrganisasiModel;
 import dev.karim.ingetin.R;
 
 /**
- * Created by Karim on 11/17/2017.
+ * Created by Karim on 12/28/2017.
  */
 
-public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> {
-    private final OnItemClickListener listener;
-    private ArrayList<TugasModel> tugasModels;
+public class AdapterOrganisasi extends RecyclerView.Adapter<AdapterOrganisasi.ViewHolder> {
 
-    public AdapterTugas(ArrayList<TugasModel> tugasModels, OnItemClickListener listener){
-        this.tugasModels = tugasModels;
+    private final OnItemClickListener listener;
+    private ArrayList<OrganisasiModel> organisasiModels;
+
+    public AdapterOrganisasi(ArrayList<OrganisasiModel> organisasiModels, OnItemClickListener listener){
+        this.organisasiModels = organisasiModels;
         this.listener = listener;
     }
 
     @Override
-    public AdapterTugas.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_tugas, null);
+    public AdapterOrganisasi.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_organisasi, null);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
 
 
     @Override
-    public void onBindViewHolder(final AdapterTugas.ViewHolder holder, final int position) {
-        holder.click(tugasModels.get(position), listener);
-        holder.txt_judul.setText(tugasModels.get(position).getJudul());
-        holder.txt_jenis.setText(tugasModels.get(position).getJenis());
-        holder.txt_deadline.setText(tugasModels.get(position).getDeadline());
+    public void onBindViewHolder(final AdapterOrganisasi.ViewHolder holder, final int position) {
+        holder.click(organisasiModels.get(position), listener);
+        holder.txt_judul.setText(organisasiModels.get(position).getJudul());
+        holder.txt_jenis.setText(organisasiModels.get(position).getJenis());
+        holder.txt_deadline.setText(organisasiModels.get(position).getDeadline());
 
         try {
-            if (tugasModels.get(position).getDone().equals("yes")){
+            if (organisasiModels.get(position).getDone().equals("yes")){
                 holder.switch_done.setChecked(true);
             } else {
                 holder.switch_done.setChecked(false);
@@ -57,11 +57,11 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    tugasModels.get(position).setDone("yes");
+                    organisasiModels.get(position).setDone("yes");
                     Log.d("You are :", "Checked");
                 }
                 else {
-                    tugasModels.get(position).setDone("no");
+                    organisasiModels.get(position).setDone("no");
                     Log.d("You are :", " Not Checked");
                 }
             }
@@ -71,7 +71,7 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return tugasModels.size();
+        return organisasiModels.size();
     }
 
 
@@ -88,11 +88,11 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
             switch_done = (Switch) itemView.findViewById(R.id.switch_done);
         }
 
-        public void click(final TugasModel tugasModel, final OnItemClickListener listener) {
+        public void click(final OrganisasiModel organisasiModel, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onClick(tugasModel);
+                    listener.onClick(organisasiModel);
                 }
             });
         }
@@ -100,6 +100,7 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
 
 
     public interface OnItemClickListener {
-        void onClick(TugasModel item);
+        void onClick(OrganisasiModel item);
     }
+
 }

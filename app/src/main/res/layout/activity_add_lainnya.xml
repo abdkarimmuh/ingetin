@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.karim.ingetin.AddActivity.AddTugasActivity">
+    tools:context="dev.karim.ingetin.AddActivity.AddLainnyaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,56 +19,54 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Judul Tugas"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
-            <EditText
-                android:id="@+id/edit_text_judul"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_judul"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Judul"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Deadline (e.g 23/04/2017)"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
-            <EditText
-                android:id="@+id/edit_text_deadline"
+                <EditText
+                    android:id="@+id/edit_text_judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Judul"
+                    android:inputType="textCapWords" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_deadline"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Deadline"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sudah Selesai?"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
+                <EditText
+                    android:id="@+id/edit_text_deadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Deadline (e.g 23/04/2017)"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edit_text_deskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="textMultiLine"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
             <Switch
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:id="@+id/switch_done"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Selesai" />
-
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Deskripsi"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
-            <EditText
-                android:id="@+id/edit_text_deskripsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Deskripsi"/>
 
         </LinearLayout>
 

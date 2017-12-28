@@ -8,14 +8,11 @@ import android.view.ViewGroup;
 
 import dev.karim.ingetin.R;
 
-/**
- * Created by Karim on 11/17/2017.
- */
 
-public class PanelTugasFragment extends Fragment{
+public class ArtikelFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_panel_tugas, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_artikel, container, false);
         return rootView;
     }
 }

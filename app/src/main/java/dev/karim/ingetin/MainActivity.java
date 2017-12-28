@@ -12,9 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import dev.karim.ingetin.Beranda.TabFragment;
-import dev.karim.ingetin.Fragment.PanelOrganisasiFragment;
-import dev.karim.ingetin.Fragment.PanelTugasFragment;
+import dev.karim.ingetin.Fragment.ArtikelFragment;
 import dev.karim.ingetin.Fragment.PengaturanFragment;
 import dev.karim.ingetin.Fragment.ProfilFragment;
 
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity
 
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setTitle(activityTitles[0]);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -129,21 +128,14 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new ProfilFragment()).commit();
             getSupportActionBar().setTitle(activityTitles[1]);
-        } else if (id == R.id.nav_tugas) {
-            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.containerView,new PanelTugasFragment()).commit();
-            getSupportActionBar().setTitle(activityTitles[2]);
-        } else if (id == R.id.nav_organisasi) {
-            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.containerView, new PanelOrganisasiFragment()).commit();
-            getSupportActionBar().setTitle(activityTitles[3]);
         } else if (id == R.id.nav_artikel) {
-                Intent profile = new Intent (MainActivity.this, ArtikelActivity.class);
-                startActivity(profile);
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.containerView,new ArtikelFragment()).commit();
+            getSupportActionBar().setTitle(activityTitles[2]);
         } else if (id == R.id.nav_pengaturan) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.containerView,new PengaturanFragment()).commit();
-            getSupportActionBar().setTitle(activityTitles[4]);
+            getSupportActionBar().setTitle(activityTitles[3]);
         } else if (id == R.id.nav_tentang) {
             Intent profile = new Intent (MainActivity.this, TentangKamiActivity.class);
             startActivity(profile);

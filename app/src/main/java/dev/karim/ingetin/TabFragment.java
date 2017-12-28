@@ -1,4 +1,4 @@
-package dev.karim.ingetin.Beranda;
+package dev.karim.ingetin;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import dev.karim.ingetin.Beranda.LainnyaFragment;
+import dev.karim.ingetin.Beranda.OrganisasiFragment;
+import dev.karim.ingetin.Beranda.TugasFragment;
 import dev.karim.ingetin.R;
 
 /**
@@ -126,13 +129,4 @@ public class TabFragment extends Fragment {
         }
     }
 
-//    int id_item = 0;
-//
-//    public void setId_item(int id_item) {
-//        this.id_item = id_item;
-//    }
-//
-//    public int getId_item() {
-//        return id_item;
-//    }
 }
