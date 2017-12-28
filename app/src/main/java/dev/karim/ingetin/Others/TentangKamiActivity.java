@@ -1,7 +1,9 @@
-package dev.karim.ingetin;
+package dev.karim.ingetin.Others;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import dev.karim.ingetin.R;
 
 public class TentangKamiActivity extends AppCompatActivity {
 

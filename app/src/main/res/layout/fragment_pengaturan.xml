@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="dev.karim.ingetin.Fragment.PengaturanFragment">
+    tools:context="dev.karim.ingetin.Others.PengaturanFragment">
 
     <RelativeLayout
         android:background="#FFF"

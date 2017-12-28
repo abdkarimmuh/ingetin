@@ -1,4 +1,4 @@
-package dev.karim.ingetin.AddActivity;
+package dev.karim.ingetin.AddEdit;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +30,7 @@ public class AddOrganisasiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_organisasi);
+        setContentView(R.layout.activity_add_edit_organisasi);
 
         realmHelper = new RealmHelper(AddOrganisasiActivity.this);
         edit_text_judul = (EditText) findViewById(R.id.edit_text_judul);

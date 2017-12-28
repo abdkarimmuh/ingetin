@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DemoMainActivity" />
+
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -20,56 +22,58 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
+
+
+
         <activity
-            android:name=".TentangKamiActivity"
+            android:name=".Others.TentangKamiActivity"
             android:label="Tentang Kami"
             android:parentActivityName=".MainActivity" />
 
-
         <activity
-            android:name=".AddActivity.AddTugasActivity"
-            android:label="Tambah Tugas"
-            android:parentActivityName=".MainActivity" />
-
-        <activity
-            android:name=".AddActivity.AddOrganisasiActivity"
-            android:label="Tambah Organisasi"
-            android:parentActivityName=".MainActivity" />
-
-        <activity
-            android:name=".AddActivity.AddLainnyaActivity"
-            android:label="Tambah Lainnya"
-            android:parentActivityName=".MainActivity" />
-
-
-        <activity
-            android:name=".EditUserActivity"
+            android:name=".Others.EditUserActivity"
             android:label="Edit User"
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".PeringatanActivity"
+            android:name=".Others.PeringatanActivity"
             android:label="Pengaturan Peringatan"
             android:parentActivityName=".MainActivity" />
 
 
-        <activity android:name=".EditActivity.EditTugasActivity"
+
+
+        <activity
+            android:name=".AddEdit.AddTugasActivity"
+            android:label="Tambah Tugas"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".AddEdit.AddOrganisasiActivity"
+            android:label="Tambah Organisasi"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".AddEdit.AddLainnyaActivity"
+            android:label="Tambah Lainnya"
+            android:parentActivityName=".MainActivity" />
+
+        <activity android:name=".AddEdit.EditTugasActivity"
             android:label="Edit Tugas"
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".EditActivity.EditOrganisasiActivity"
+            android:name=".AddEdit.EditOrganisasiActivity"
             android:label="Edit Organisasi"
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".EditActivity.EditLainnyaActivity"
+            android:name=".AddEdit.EditLainnyaActivity"
             android:label="Edit Lainnya"
             android:parentActivityName=".MainActivity" />
 

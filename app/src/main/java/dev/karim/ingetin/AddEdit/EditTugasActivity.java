@@ -1,9 +1,9 @@
-package dev.karim.ingetin.EditActivity;
+package dev.karim.ingetin.AddEdit;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,41 +12,35 @@ import android.widget.Switch;
 import java.util.ArrayList;
 
 import dev.karim.ingetin.MainActivity;
-import dev.karim.ingetin.Model.OrganisasiModel;
+import dev.karim.ingetin.Model.TugasModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
-/**
- * Created by Karim on 12/28/2017.
- */
-
-public class EditOrganisasiActivity extends AppCompatActivity {
+public class EditTugasActivity extends AppCompatActivity {
 
     private int position;
     private Button btn_save, btn_delete;
-    private EditText edit_text_judul, edit_text_jenis, edit_text_deadline, edit_text_deskripsi, edit_text_presensi, edit_text_notulensi;
+    private EditText edit_text_judul, edit_text_jenis, edit_text_deadline, edit_text_deskripsi;
     private Switch switch_done;
 
-    private String judul, jenis, deadline, deskripsi, presensi, notulensi, check;
+    private String judul, jenis, deadline, deskripsi, check;
 
     private RealmHelper helper;
-    private ArrayList<OrganisasiModel> data;
+    private ArrayList<TugasModel> data;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_organisasi);
+        setContentView(R.layout.activity_add_edit_tugas);
 
-        helper = new RealmHelper(EditOrganisasiActivity.this);
+        helper = new RealmHelper(EditTugasActivity.this);
         data = new ArrayList<>();
         position = getIntent().getIntExtra("id", 0);
 
         judul = getIntent().getStringExtra("judul");
         jenis = getIntent().getStringExtra("jenis");
         deadline = getIntent().getStringExtra("deadline");
-        notulensi = getIntent().getStringExtra("notulensi");
         deskripsi = getIntent().getStringExtra("deskripsi");
-        presensi = getIntent().getStringExtra("presensi");
         check = getIntent().getStringExtra("done");
 
         btn_delete = (Button)findViewById(R.id.btn_delete);
@@ -56,16 +50,12 @@ public class EditOrganisasiActivity extends AppCompatActivity {
         edit_text_jenis = (EditText) findViewById(R.id.edit_text_jenis);
         edit_text_deadline = (EditText) findViewById(R.id.edit_text_deadline);
         edit_text_deskripsi = (EditText) findViewById(R.id.edit_text_deskripsi);
-        edit_text_presensi = (EditText) findViewById(R.id.edit_text_presensi);
-        edit_text_notulensi = (EditText) findViewById(R.id.edit_text_notulensi);
         switch_done = (Switch) findViewById(R.id.switch_done);
 
         edit_text_judul.setText(judul);
         edit_text_jenis.setText(jenis);
         edit_text_deadline.setText(deadline);
         edit_text_deskripsi.setText(deskripsi);
-        edit_text_presensi.setText(presensi);
-        edit_text_notulensi.setText(notulensi);
 
         try {
             if (check.equals("yes")){
@@ -85,9 +75,9 @@ public class EditOrganisasiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //menghapus data dari database
-                helper.deleteOrganisasi(position);
+                helper.deleteTugas(position);
 
-                startActivity(new Intent(EditOrganisasiActivity.this, MainActivity.class));
+                startActivity(new Intent(EditTugasActivity.this, MainActivity.class));
                 finish();
             }
         });
@@ -100,8 +90,6 @@ public class EditOrganisasiActivity extends AppCompatActivity {
                 jenis = edit_text_jenis.getText().toString();
                 deadline = edit_text_deadline.getText().toString();
                 deskripsi = edit_text_deskripsi.getText().toString();
-                presensi = edit_text_presensi.getText().toString();
-                notulensi = edit_text_notulensi.getText().toString();
                 if (switch_done.isChecked()) {
                     check = "yes";
                 } else {
@@ -109,10 +97,10 @@ public class EditOrganisasiActivity extends AppCompatActivity {
                 }
 
                 //update
-                helper.updateOrganisasi(position, judul, jenis, deadline, deskripsi, presensi, notulensi, check);
+                helper.updateTugas(position, judul, jenis, deadline, deskripsi, check);
 
                 //pindah activity
-                startActivity(new Intent(EditOrganisasiActivity.this, MainActivity.class));
+                startActivity(new Intent(EditTugasActivity.this, MainActivity.class));
             }
         });
 

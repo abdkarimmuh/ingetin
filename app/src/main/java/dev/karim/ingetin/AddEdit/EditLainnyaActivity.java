@@ -1,4 +1,4 @@
-package dev.karim.ingetin.EditActivity;
+package dev.karim.ingetin.AddEdit;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ public class EditLainnyaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_lainnya);
+        setContentView(R.layout.activity_add_edit_lainnya);
 
         helper = new RealmHelper(EditLainnyaActivity.this);
         data = new ArrayList<>();

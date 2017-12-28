@@ -1,4 +1,4 @@
-package dev.karim.ingetin.Beranda;
+package dev.karim.ingetin.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +16,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import dev.karim.ingetin.Adapter.AdapterLainnya;
-import dev.karim.ingetin.AddActivity.AddLainnyaActivity;
-import dev.karim.ingetin.AddActivity.AddTugasActivity;
-import dev.karim.ingetin.EditActivity.EditLainnyaActivity;
-import dev.karim.ingetin.Model.LainnyaModel;
+import dev.karim.ingetin.Adapter.AdapterOrganisasi;
+import dev.karim.ingetin.AddEdit.AddOrganisasiActivity;
+import dev.karim.ingetin.AddEdit.EditOrganisasiActivity;
+import dev.karim.ingetin.Model.OrganisasiModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
@@ -28,22 +27,23 @@ import dev.karim.ingetin.RealmHelper;
  * Created by Karim on 11/17/2017.
  */
 
-public class LainnyaFragment extends Fragment {
+public class OrganisasiFragment extends Fragment {
+
     private static final String TAG = "OrganisasiFragment";
 
 
     private RecyclerView recyclerView;
     private RealmHelper helper;
-    private ArrayList<LainnyaModel> data;
+    private ArrayList<OrganisasiModel> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_lainnya, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_organisasi, container, false);
 
         data = new ArrayList<>();
         helper = new RealmHelper(getContext());
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvLainnya);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvOrganisasi);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         setRecyclerView();
@@ -56,30 +56,33 @@ public class LainnyaFragment extends Fragment {
      */
     private void setRecyclerView() {
         try {
-            data = helper.findAllLainnya();
+            data = helper.findAllOrganisasi();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        AdapterLainnya adapterLainnya = new AdapterLainnya(data, new AdapterLainnya.OnItemClickListener() {
+        AdapterOrganisasi adapterOrganisasi = new AdapterOrganisasi(data, new AdapterOrganisasi.OnItemClickListener() {
             @Override
-            public void onClick(LainnyaModel item) {
-                Intent i = new Intent(getContext(), EditLainnyaActivity.class);
+            public void onClick(OrganisasiModel item) {
+                Intent i = new Intent(getContext(), EditOrganisasiActivity.class);
                 i.putExtra("id", item.getId());
                 i.putExtra("judul", item.getJudul());
+                i.putExtra("jenis", item.getJenis());
                 i.putExtra("deadline", item.getDeadline());
                 i.putExtra("deskripsi", item.getDeskripsi());
+                i.putExtra("presensi", item.getPresensi());
+                i.putExtra("notulensi", item.getNotulensi());
                 i.putExtra("done", item.getDone());
                 startActivity(i);
             }
         });
-        recyclerView.setAdapter(adapterLainnya);
+        recyclerView.setAdapter(adapterOrganisasi);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         try {
-            data = helper.findAllLainnya();
+            data = helper.findAllOrganisasi();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,8 +106,8 @@ public class LainnyaFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Toast.makeText(getContext(), "Lainnya", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this.getContext(), AddLainnyaActivity.class);
+                Toast.makeText(getContext(), "Organisasi", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this.getContext(), AddOrganisasiActivity.class);
                 startActivity(intent);
                 break;
         }

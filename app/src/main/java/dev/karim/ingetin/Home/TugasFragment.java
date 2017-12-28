@@ -1,9 +1,9 @@
-package dev.karim.ingetin.Beranda;
+package dev.karim.ingetin.Home;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,34 +16,34 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import dev.karim.ingetin.Adapter.AdapterOrganisasi;
-import dev.karim.ingetin.AddActivity.AddOrganisasiActivity;
-import dev.karim.ingetin.EditActivity.EditOrganisasiActivity;
-import dev.karim.ingetin.Model.OrganisasiModel;
+import dev.karim.ingetin.Adapter.AdapterTugas;
+import dev.karim.ingetin.AddEdit.EditTugasActivity;
+import dev.karim.ingetin.Model.TugasModel;
 import dev.karim.ingetin.R;
+import dev.karim.ingetin.AddEdit.AddTugasActivity;
 import dev.karim.ingetin.RealmHelper;
 
 /**
  * Created by Karim on 11/17/2017.
  */
 
-public class OrganisasiFragment extends Fragment {
+public class TugasFragment extends Fragment {
 
-    private static final String TAG = "OrganisasiFragment";
+    private static final String TAG = "TugasFragment";
 
 
     private RecyclerView recyclerView;
     private RealmHelper helper;
-    private ArrayList<OrganisasiModel> data;
+    private ArrayList<TugasModel> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_organisasi, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tugas, container, false);
 
         data = new ArrayList<>();
         helper = new RealmHelper(getContext());
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvOrganisasi);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvTugas);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         setRecyclerView();
@@ -56,33 +56,31 @@ public class OrganisasiFragment extends Fragment {
      */
     private void setRecyclerView() {
         try {
-            data = helper.findAllOrganisasi();
+            data = helper.findAllTugas();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        AdapterOrganisasi adapterOrganisasi = new AdapterOrganisasi(data, new AdapterOrganisasi.OnItemClickListener() {
+        AdapterTugas adapterTugas = new AdapterTugas(data, new AdapterTugas.OnItemClickListener() {
             @Override
-            public void onClick(OrganisasiModel item) {
-                Intent i = new Intent(getContext(), EditOrganisasiActivity.class);
+            public void onClick(TugasModel item) {
+                Intent i = new Intent(getContext(), EditTugasActivity.class);
                 i.putExtra("id", item.getId());
                 i.putExtra("judul", item.getJudul());
                 i.putExtra("jenis", item.getJenis());
                 i.putExtra("deadline", item.getDeadline());
                 i.putExtra("deskripsi", item.getDeskripsi());
-                i.putExtra("presensi", item.getPresensi());
-                i.putExtra("notulensi", item.getNotulensi());
                 i.putExtra("done", item.getDone());
                 startActivity(i);
             }
         });
-        recyclerView.setAdapter(adapterOrganisasi);
+        recyclerView.setAdapter(adapterTugas);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         try {
-            data = helper.findAllOrganisasi();
+            data = helper.findAllTugas();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,8 +104,8 @@ public class OrganisasiFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Toast.makeText(getContext(), "Organisasi", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this.getContext(), AddOrganisasiActivity.class);
+                Toast.makeText(getContext(), "Tugas", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this.getContext(), AddTugasActivity.class);
                 startActivity(intent);
                 break;
         }

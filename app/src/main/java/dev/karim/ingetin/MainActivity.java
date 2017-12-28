@@ -12,9 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import dev.karim.ingetin.Fragment.ArtikelFragment;
-import dev.karim.ingetin.Fragment.PengaturanFragment;
-import dev.karim.ingetin.Fragment.ProfilFragment;
+import dev.karim.ingetin.Others.ArtikelFragment;
+import dev.karim.ingetin.Others.PengaturanFragment;
+import dev.karim.ingetin.Others.ProfilFragment;
+import dev.karim.ingetin.Others.TentangKamiActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

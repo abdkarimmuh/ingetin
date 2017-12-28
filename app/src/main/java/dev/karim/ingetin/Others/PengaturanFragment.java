@@ -1,4 +1,4 @@
-package dev.karim.ingetin.Fragment;
+package dev.karim.ingetin.Others;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import dev.karim.ingetin.EditUserActivity;
-import dev.karim.ingetin.PeringatanActivity;
 import dev.karim.ingetin.R;
 
 /**

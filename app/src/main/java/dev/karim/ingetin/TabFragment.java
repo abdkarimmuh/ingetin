@@ -11,10 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import dev.karim.ingetin.Beranda.LainnyaFragment;
-import dev.karim.ingetin.Beranda.OrganisasiFragment;
-import dev.karim.ingetin.Beranda.TugasFragment;
-import dev.karim.ingetin.R;
+import dev.karim.ingetin.Home.LainnyaFragment;
+import dev.karim.ingetin.Home.OrganisasiFragment;
+import dev.karim.ingetin.Home.TugasFragment;
 
 /**
  * Created by Karim on 11/17/2017.

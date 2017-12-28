@@ -1,8 +1,8 @@
-package dev.karim.ingetin.AddActivity;
+package dev.karim.ingetin.AddEdit;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +17,12 @@ import dev.karim.ingetin.MainActivity;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
-public class AddTugasActivity extends AppCompatActivity {
+public class AddLainnyaActivity extends AppCompatActivity {
 
-    private static final String TAG = "Add Tugas Activity";
+    private static final String TAG = "Add Lainnya Activity";
 
     private RealmHelper realmHelper;
-    private EditText edit_text_judul, edit_text_jenis, edit_text_deadline, edit_text_deskripsi;
+    private EditText edit_text_judul, edit_text_deadline, edit_text_deskripsi;
     private String check;
     private Switch switch_done;
     private Button btn_save;
@@ -30,11 +30,10 @@ public class AddTugasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_tugas);
+        setContentView(R.layout.activity_add_edit_lainnya);
 
-        realmHelper = new RealmHelper(AddTugasActivity.this);
+        realmHelper = new RealmHelper(AddLainnyaActivity.this);
         edit_text_judul = (EditText) findViewById(R.id.edit_text_judul);
-        edit_text_jenis = (EditText) findViewById(R.id.edit_text_jenis);
         edit_text_deadline = (EditText) findViewById(R.id.edit_text_deadline);
         edit_text_deskripsi = (EditText) findViewById(R.id.edit_text_deskripsi);
         switch_done = (Switch) findViewById(R.id.switch_done);
@@ -45,7 +44,7 @@ public class AddTugasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //inisialisasi string
-                String judul, jenis, deadline, deskripsi, done;
+                String judul, deadline, deskripsi, done;
 
                 //jika swich di pilih
                 if (switch_done.isChecked()){
@@ -56,7 +55,6 @@ public class AddTugasActivity extends AppCompatActivity {
 
                 //mengambil text dr edittext
                 judul = edit_text_judul.getText().toString();
-                jenis = edit_text_jenis.getText().toString();
                 deadline = edit_text_deadline.getText().toString();
                 deskripsi = edit_text_deskripsi.getText().toString();
                 done = check;
@@ -68,12 +66,12 @@ public class AddTugasActivity extends AppCompatActivity {
                                 deadline));
 
                         //menambahkan data pada database
-                        realmHelper.addTugas(judul, jenis, deadline, deskripsi, done);
+                        realmHelper.addLainnya(judul, deadline, deskripsi, done);
 
-                        Log.d("Add Tugas", "Check : " + done);
+                        Log.d("Add Lainnya", "Check : " + done);
 
                         //kembali ke MainActivity
-                        Intent i = new Intent(AddTugasActivity.this, MainActivity.class);
+                        Intent i = new Intent(AddLainnyaActivity.this, MainActivity.class);
                         startActivity(i);
                     }
                     catch (Exception e) {
