@@ -26,77 +26,37 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"/>
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_sound_berat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sound"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_sound_berat"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Sound" />
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_vibrate_berat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vibrate"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_vibrate_berat"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Vibrate" />
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_repeat_berat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Repeat"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_repeat_berat"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Repeat" />
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_image_berat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Image"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_image_berat"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Image" />
 
         </LinearLayout>
 
@@ -121,41 +81,21 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"/>
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_sound_sedang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sound"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_sound_sedang"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Sound" />
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_vibrate_sedang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vibrate"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_vibrate_sedang"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Vibrate" />
 
         </LinearLayout>
 
@@ -180,23 +120,13 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"/>
 
-            <RelativeLayout
-                android:padding="5dp"
+            <Switch
+                android:padding="10dp"
+                android:id="@+id/switch_vibrate_ringan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vibrate"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
-                <Switch
-                    android:id="@+id/switch_vibrate_ringan"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:textSize="14sp"
+                android:text="Vibrate" />
 
         </LinearLayout>
 

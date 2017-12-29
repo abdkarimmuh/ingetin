@@ -136,7 +136,7 @@ public class RealmHelper {
         ArrayList<TugasModel> data = new ArrayList<>();
 
         realmResultTugas = realm.where(Tugas.class).findAll();
-        realmResultTugas.sort("id", Sort.ASCENDING);
+        realmResultTugas.sort("id", Sort.DESCENDING);
         if (realmResultTugas.size() > 0){
             showLog("Size : " + realmResultTugas.size());
 
@@ -165,7 +165,7 @@ public class RealmHelper {
         ArrayList<OrganisasiModel> data = new ArrayList<>();
 
         realmResultOrganisasi = realm.where(Organisasi.class).findAll();
-        realmResultOrganisasi.sort("id", Sort.ASCENDING);
+        realmResultOrganisasi.sort("id", Sort.DESCENDING);
         if (realmResultOrganisasi.size() > 0){
             showLog("Size : " + realmResultOrganisasi.size());
 
@@ -196,7 +196,7 @@ public class RealmHelper {
         ArrayList<LainnyaModel> data = new ArrayList<>();
 
         realmResultLainnya = realm.where(Lainnya.class).findAll();
-        realmResultLainnya.sort("id", Sort.ASCENDING);
+        realmResultLainnya.sort("id", Sort.DESCENDING);
         if (realmResultLainnya.size() > 0){
             showLog("Size : " + realmResultLainnya.size());
 

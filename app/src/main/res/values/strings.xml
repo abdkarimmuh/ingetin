@@ -3,6 +3,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
 
     <string name="title_activity_main">Ingetin</string>
 
@@ -10,8 +12,7 @@
     <string-array name="nav_item_activity_titles">
         <item>Ingetin</item>
         <item>Profil</item>
-        <item>Panel Tugas</item>
-        <item>Panel Organisasi</item>
+        <item>Artikel</item>
         <item>Pengaturan</item>
     </string-array>
 
