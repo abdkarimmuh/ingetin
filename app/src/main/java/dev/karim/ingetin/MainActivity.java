@@ -50,58 +50,6 @@ public class MainActivity extends AppCompatActivity
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
 
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                drawer.closeDrawers();
-//
-//                if (menuItem.getItemId() == R.id.nav_beranda) {
-//                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
-//                    getSupportActionBar().setTitle(activityTitles[0]);
-//                }
-//                if (menuItem.getItemId() == R.id.nav_profil) {
-//                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
-//                    getSupportActionBar().setTitle(activityTitles[1]);
-//                }
-//                if (menuItem.getItemId() == R.id.nav_tugas) {
-//                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
-//                    getSupportActionBar().setTitle(activityTitles[1]);
-//                }
-//                if (menuItem.getItemId() == R.id.nav_organisasi) {
-//                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
-//                    getSupportActionBar().setTitle(activityTitles[1]);
-//                }
-//                if (menuItem.getItemId() == R.id.nav_pengaturan) {
-//                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
-//                    getSupportActionBar().setTitle(activityTitles[1]);
-//                }
-//                if (menuItem.getItemId() == R.id.nav_tentang) {
-//                    Intent profile = new Intent (MainActivity.this, DemoMainActivity.class);
-//                    startActivity(profile);
-//                }
-//
-//
-//
-//                return false;
-//            }
-//
-//        });
-//
-//        /**
-//         * Setup Drawer Toggle of the Toolbar
-//         */
-//
-//        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this,drawer, toolbar,R.string.app_name,
-//                R.string.app_name);
-//
-//        drawer.setDrawerListener(mDrawerToggle);
-//
-//        mDrawerToggle.syncState();
     }
 
     @Override

@@ -24,17 +24,6 @@
             android:padding="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ingetin team"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp" />
-
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -46,12 +35,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ingetin team"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp" />
+
                     <TextView
                         android:textSize="14sp"
                         android:textStyle="italic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Developer by : "/>
+                        android:text="Lead Developer by : "/>
 
                     <TextView
                         android:textSize="14sp"
@@ -66,22 +66,7 @@
                         android:textStyle="italic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Developer by : "/>
-
-                    <TextView
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Muhammad Jafier Rama Putra"/>
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:textSize="14sp"
-                        android:textStyle="italic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Developer by : "/>
+                        android:text="FrontEnd Programmer by : "/>
 
                     <TextView
                         android:textSize="14sp"
@@ -96,7 +81,14 @@
                         android:textStyle="italic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Developer by : "/>
+                        android:text="Tester by : "/>
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Muhammad Jafier Rama Putra"/>
 
                     <TextView
                         android:textSize="14sp"
@@ -109,6 +101,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/cv_github"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
@@ -118,6 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:textSize="14sp"
                         android:textStyle="italic"
@@ -131,35 +125,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="https://github.com/setakarim/ingetin"/>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:textSize="14sp"
-                        android:textStyle="italic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Reference : "/>
-
-                    <TextView
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="https://www.androidauthority.com/creating-sqlite-databases-in-your-app-719366/
-\n http://www.gookkis.com/aplikasi-crud-dengan-realm-database-tutorial-pada-android/"/>
 
                 </LinearLayout>
 
