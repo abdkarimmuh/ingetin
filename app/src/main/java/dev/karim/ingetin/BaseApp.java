@@ -37,12 +37,21 @@ public class BaseApp extends Application {
 
             //membuat schema baru jika versi 0
             if (oldVersion == 0) {
+                //Profil
+                schema.create("Profil")
+                        .addField("nama", String.class)
+                        .addField("email", String.class)
+                        .addField("instansi", String.class);
+
+                //Tugas
                 schema.create("Tugas")
                         .addField("judul", String.class)
                         .addField("jenis", String.class)
                         .addField("deadline", String.class)
                         .addField("deskripsi", String.class)
                         .addField("done", String.class);
+
+                //Organisasi
                 schema.create("Organisasi")
                         .addField("judul", String.class)
                         .addField("jenis", String.class)
@@ -51,6 +60,8 @@ public class BaseApp extends Application {
                         .addField("presensi", String.class)
                         .addField("notulensi", String.class)
                         .addField("done", String.class);
+
+                //Lainnya
                 schema.create("Lainnya")
                         .addField("judul", String.class)
                         .addField("deadline", String.class)

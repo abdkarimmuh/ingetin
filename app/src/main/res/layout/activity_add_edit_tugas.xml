@@ -67,7 +67,7 @@
                 android:padding="10dp">
 
                 <EditText
-                    android:id="@+id/edit_text_deskripsie"
+                    android:id="@+id/edit_text_deskripsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Deskripsi"

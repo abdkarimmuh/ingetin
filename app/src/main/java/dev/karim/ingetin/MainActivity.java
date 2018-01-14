@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import dev.karim.ingetin.Model.ProfilModel;
 import dev.karim.ingetin.Others.ArtikelFragment;
 import dev.karim.ingetin.Others.PengaturanFragment;
 import dev.karim.ingetin.Others.ProfilFragment;
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txt_nama, txt_instansi;
     private Toolbar toolbar;
+    private ArrayList<ProfilModel> profilModels = new ArrayList<>();
+    private RealmHelper realmHelper;
 
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
@@ -75,6 +80,20 @@ public class MainActivity extends AppCompatActivity {
 
         // initializing navigation menu
         setUpNavigationView();
+
+        try {
+            realmHelper = new RealmHelper(MainActivity.this);
+
+            profilModels = realmHelper.findAllProfil();
+
+            if (!realmHelper.findAllProfil().isEmpty()){
+                txt_nama.setText(profilModels.get(0).getNama());
+                txt_instansi.setText(profilModels.get(0).getInstansi());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         if (savedInstanceState == null) {
             navItemIndex = 0;

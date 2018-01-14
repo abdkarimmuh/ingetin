@@ -39,7 +39,7 @@ public class PengaturanFragment extends Fragment {
         btn_pengaturan_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EditUserActivity.class);
+                Intent intent = new Intent(getActivity(), EditProfilActivity.class);
                 startActivity(intent);
             }
         });

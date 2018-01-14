@@ -36,9 +36,8 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".Others.EditUserActivity"
-            android:label="Edit User"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Others.EditProfilActivity"
+            android:label="User" />
 
         <activity
             android:name=".Others.PeringatanActivity"

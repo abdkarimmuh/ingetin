@@ -5,10 +5,15 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
+
+import dev.karim.ingetin.Others.EditProfilActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
     private static boolean splashLoaded = false;
+    //private RealmHelper realmHelper = new RealmHelper(SplashActivity.this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,8 +24,20 @@ public class SplashActivity extends AppCompatActivity {
             int secondsDelayed = 1;
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    finish();
+
+                    try {
+                        RealmHelper realmHelper = new RealmHelper(SplashActivity.this);
+                        if (realmHelper.findAllProfil().isEmpty()) {
+                            startActivity(new Intent(SplashActivity.this, EditProfilActivity.class));
+                            finish();
+                        } else {
+                            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                            finish();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 }
             }, secondsDelayed * 3000);
 

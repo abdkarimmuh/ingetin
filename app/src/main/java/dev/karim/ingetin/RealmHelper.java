@@ -1,6 +1,7 @@
 package dev.karim.ingetin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -8,9 +9,11 @@ import java.util.ArrayList;
 
 import dev.karim.ingetin.Model.LainnyaModel;
 import dev.karim.ingetin.Model.OrganisasiModel;
+import dev.karim.ingetin.Model.ProfilModel;
 import dev.karim.ingetin.Model.TugasModel;
 import dev.karim.ingetin.RealmObject.Lainnya;
 import dev.karim.ingetin.RealmObject.Organisasi;
+import dev.karim.ingetin.RealmObject.Profil;
 import dev.karim.ingetin.RealmObject.Tugas;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -28,6 +31,7 @@ public class RealmHelper {
     private RealmResults<Organisasi> realmResultOrganisasi;
     private RealmResults<Tugas> realmResultTugas;
     private RealmResults<Lainnya> realmResultLainnya;
+    private RealmResults<Profil> realmResultProfil;
     public Context context;
 
     /**
@@ -43,6 +47,33 @@ public class RealmHelper {
                 .build();
         realm = Realm.getInstance(config);
         this.context = context;
+    }
+
+
+
+    /**
+     * menambah data
+     *
+     * @param nama
+     * @param email
+     * @param instansi
+     */
+    public void addProfil(String nama, String email, String instansi){
+        Profil profil = new Profil();
+
+//        profil.setId(0);
+        profil.setId((int) (System.currentTimeMillis() / 1000));
+        profil.setNama(nama);
+        profil.setEmail(email);
+        profil.setInstansi(instansi);
+
+
+        realm.beginTransaction();
+        realm.copyToRealm(profil);
+        realm.commitTransaction();
+
+        showLog("Added ; " + profil);
+        showToast(profil + " berhasil disimpan");
     }
 
     /**
@@ -127,6 +158,34 @@ public class RealmHelper {
 
 
 
+
+
+    /**
+     * method mencari semua Profil
+     */
+    public ArrayList<ProfilModel> findAllProfil(){
+        ArrayList<ProfilModel> data = new ArrayList<>();
+
+        realmResultProfil = realm.where(Profil.class).findAll();
+        realmResultProfil.sort("id", Sort.DESCENDING);
+        if (realmResultProfil.size() > 0){
+            showLog("Size : " + realmResultProfil.size());
+
+            for (int i = 0; i < realmResultProfil.size(); i++) {
+                String nama, email, instansi;
+                int id = realmResultProfil.get(i).getId();
+                nama = realmResultProfil.get(i).getNama();
+                email = realmResultProfil.get(i).getEmail();
+                instansi = realmResultProfil.get(i).getInstansi();
+                data.add(new ProfilModel(id, nama, email, instansi));
+            }
+
+        } else {
+            showLog("Size : 0");
+        }
+
+        return data;
+    }
 
 
     /**
@@ -220,6 +279,24 @@ public class RealmHelper {
 
 
 
+    /**
+     * method update Profil
+     *
+     * @param id
+     * @param nama
+     * @param email
+     * @param instansi
+     */
+    public void updateProfil(int id, String nama, String email, String instansi){
+        realm.beginTransaction();
+        Profil profil = realm.where(Profil.class).equalTo("id", id).findFirst();
+        profil.setNama(nama);
+        profil.setEmail(email);
+        profil.setInstansi(instansi);
+        realm.commitTransaction();
+        showLog("Updated : " + nama);
+        showToast("Profil berhasil diupdate.");
+    }
 
 
     /**
@@ -296,6 +373,21 @@ public class RealmHelper {
 
 
 
+    /**
+     * method menghapus Profil berdasarkan id
+     *
+     * @param id
+     */
+    public void deleteProfil(int id) {
+        realm.beginTransaction();
+        RealmResults<Profil> dataResults = realm.where(Profil.class).equalTo("id", id).findAll();
+
+        dataResults.deleteAllFromRealm();
+
+        realm.commitTransaction();
+
+        showToast("Hapus data berhasil.");
+    }
 
     /**
      * method menghapus Tugas berdasarkan id

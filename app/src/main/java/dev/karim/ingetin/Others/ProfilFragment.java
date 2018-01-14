@@ -8,7 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import dev.karim.ingetin.Model.ProfilModel;
 import dev.karim.ingetin.R;
+import dev.karim.ingetin.RealmHelper;
 
 /**
  * Created by Karim on 11/17/2017.
@@ -17,6 +21,10 @@ import dev.karim.ingetin.R;
 public class ProfilFragment extends Fragment {
 
     TextView txt_nama, txt_email, txt_instansi, txt_edit;
+
+    private RealmHelper realmHelper;
+
+    private ArrayList<ProfilModel> profilModels = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,10 +35,21 @@ public class ProfilFragment extends Fragment {
         txt_instansi = (TextView) rootView.findViewById(R.id.txt_instansi);
         txt_edit = (TextView) rootView.findViewById(R.id.txt_edit);
 
+        try {
+            realmHelper = new RealmHelper(ProfilFragment.super.getContext());
+
+            profilModels = realmHelper.findAllProfil();
+            txt_nama.setText(profilModels.get(0).getNama());
+            txt_email.setText(profilModels.get(0).getEmail());
+            txt_instansi.setText(profilModels.get(0).getInstansi());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         txt_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), EditUserActivity.class);
+                Intent intent = new Intent(getContext(), EditProfilActivity.class);
                 startActivity(intent);
             }
         });
