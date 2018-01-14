@@ -1,6 +1,7 @@
 package dev.karim.ingetin.Adapter;
 
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import dev.karim.ingetin.MainActivity;
 import dev.karim.ingetin.Model.TugasModel;
 import dev.karim.ingetin.R;
+import dev.karim.ingetin.RealmHelper;
 
 /**
  * Created by Karim on 11/17/2017.
@@ -59,8 +62,7 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
                 if(isChecked) {
                     tugasModels.get(position).setDone("yes");
                     Log.d("You are :", "Checked");
-                }
-                else {
+                } else {
                     tugasModels.get(position).setDone("no");
                     Log.d("You are :", " Not Checked");
                 }

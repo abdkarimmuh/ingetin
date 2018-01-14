@@ -217,6 +217,13 @@ public class MainActivity extends AppCompatActivity {
                         // launch new intent instead of loading fragment
                         Toast.makeText(getApplicationContext(), "Share!", Toast.LENGTH_LONG).show();
 //                        startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
+
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, "Aplikasi Ingetin \nhttps://github.com/setakarim/ingetin");
+                        sendIntent.setType("text/plain");
+                        startActivity(sendIntent);
+
                         drawer.closeDrawers();
                         return true;
                     default:

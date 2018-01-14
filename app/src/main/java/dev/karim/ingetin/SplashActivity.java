@@ -5,10 +5,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.EditText;
-
-import dev.karim.ingetin.Others.EditProfilActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -28,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
                     try {
                         RealmHelper realmHelper = new RealmHelper(SplashActivity.this);
                         if (realmHelper.findAllProfil().isEmpty()) {
-                            startActivity(new Intent(SplashActivity.this, EditProfilActivity.class));
+                            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                             finish();
                         } else {
                             startActivity(new Intent(SplashActivity.this, MainActivity.class));

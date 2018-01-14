@@ -3,6 +3,8 @@ package dev.karim.ingetin.Others;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import dev.karim.ingetin.LoginActivity;
 import dev.karim.ingetin.Model.ProfilModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
@@ -49,8 +52,14 @@ public class ProfilFragment extends Fragment {
         txt_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), EditProfilActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), LoginActivity.class);
+//                startActivity(intent);
+
+                EditProfilFragment editProfilFragment = new EditProfilFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_profil, editProfilFragment);
+                fragmentTransaction.commit();
             }
         });
 

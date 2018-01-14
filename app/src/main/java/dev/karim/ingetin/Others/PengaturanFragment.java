@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import dev.karim.ingetin.LoginActivity;
 import dev.karim.ingetin.R;
 
 /**
@@ -39,7 +40,7 @@ public class PengaturanFragment extends Fragment {
         btn_pengaturan_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EditProfilActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -36,7 +36,7 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".Others.EditProfilActivity"
+            android:name=".LoginActivity"
             android:label="User" />
 
         <activity

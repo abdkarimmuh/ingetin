@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.karim.ingetin.Others.EditProfilActivity">
+    tools:context="dev.karim.ingetin.LoginActivity"
+    android:background="@color/colorPrimaryDark">
 
     <LinearLayout
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +24,10 @@
             android:layout_marginBottom="10dp">
 
             <EditText
+                android:textColor="#FFF"
+                android:textColorHint="#FFF"
+                android:textColorHighlight="#FFF"
+                android:textColorLink="#FFF"
                 android:id="@+id/edit_text_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,6 +42,10 @@
             android:layout_marginBottom="10dp">
 
             <EditText
+                android:textColor="#FFF"
+                android:textColorHint="#FFF"
+                android:textColorHighlight="#FFF"
+                android:textColorLink="#FFF"
                 android:id="@+id/edit_text_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,6 +60,10 @@
             android:layout_marginBottom="10dp">
 
             <EditText
+                android:textColor="#FFF"
+                android:textColorHint="#FFF"
+                android:textColorHighlight="#FFF"
+                android:textColorLink="#FFF"
                 android:id="@+id/edit_text_instansi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,13 +73,12 @@
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_gravity="right"
             android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SAVE"
-            android:textColor="#FFF"
-            android:backgroundTint="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:backgroundTint="#FFF"/>
 
     </LinearLayout>
 

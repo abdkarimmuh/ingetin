@@ -1,23 +1,31 @@
 package dev.karim.ingetin.Others;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dev.karim.ingetin.LoginActivity;
 import dev.karim.ingetin.MainActivity;
 import dev.karim.ingetin.Model.ProfilModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
-public class EditProfilActivity extends AppCompatActivity {
+/**
+ * Created by Karim on 1/14/2018.
+ */
 
-    private static final String TAG = "Edit Profil Activity";
+public class EditProfilFragment extends Fragment {
 
     private RealmHelper realmHelper;
 
@@ -26,18 +34,16 @@ public class EditProfilActivity extends AppCompatActivity {
     private EditText edit_text_nama, edit_text_email, edit_text_instansi;
     private Button btn_save;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profil);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_edit_profil, container, false);
 
-        realmHelper = new RealmHelper(EditProfilActivity.this);
+        realmHelper = new RealmHelper(EditProfilFragment.super.getContext());
 
-        edit_text_nama = (EditText) findViewById(R.id.edit_text_nama);
-        edit_text_email = (EditText) findViewById(R.id.edit_text_email);
-        edit_text_instansi = (EditText) findViewById(R.id.edit_text_instansi);
-        btn_save = (Button) findViewById(R.id.btn_save);
+        edit_text_nama = (EditText) rootView.findViewById(R.id.edit_text_nama);
+        edit_text_email = (EditText) rootView.findViewById(R.id.edit_text_email);
+        edit_text_instansi = (EditText) rootView.findViewById(R.id.edit_text_instansi);
+        btn_save = (Button) rootView.findViewById(R.id.btn_save);
 
         try {
             profilModels = realmHelper.findAllProfil();
@@ -63,11 +69,20 @@ public class EditProfilActivity extends AppCompatActivity {
                     realmHelper.updateProfil(profilModels.get(0).getId(), nama, email, instansi);
                 }
 
-                Toast.makeText(getApplicationContext(), "Profil Disimpan" + " " + realmHelper.findAllProfil().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Profil Disimpan", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(EditProfilActivity.this, MainActivity.class);
-                startActivity(intent);
+                ProfilFragment profilFragment = new ProfilFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_edit_profil, profilFragment);
+                fragmentTransaction.commit();
+
+//                Intent intent = new Intent(EditProfilFragment.super.getContext(), MainActivity.class);
+//                startActivity(intent);
             }
         });
+
+        return rootView;
     }
 }
+
