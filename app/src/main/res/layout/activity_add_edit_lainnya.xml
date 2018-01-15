@@ -75,6 +75,13 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:textColor="#FFF"
+                    android:text="save" />
 
                 <Button
                     android:id="@+id/btn_delete"
@@ -82,18 +89,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Delete"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="#FFF"
+                    android:backgroundTint="#FFF"
+                    android:textColor="@color/colorAccent"
                     android:visibility="gone"/>
 
-
-                <Button
-                    android:id="@+id/btn_save"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="#FFF"
-                    android:text="save" />
             </LinearLayout>
 
         </LinearLayout>

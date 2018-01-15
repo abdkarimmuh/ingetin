@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ import dev.karim.ingetin.RealmHelper;
 
 public class ProfilFragment extends Fragment {
 
-    TextView txt_nama, txt_email, txt_instansi, txt_edit;
+    TextView txt_nama, txt_email, txt_instansi;
+    Button btn_edit_profil;
 
     private RealmHelper realmHelper;
 
@@ -36,7 +38,7 @@ public class ProfilFragment extends Fragment {
         txt_nama = (TextView) rootView.findViewById(R.id.txt_nama);
         txt_email = (TextView) rootView.findViewById(R.id.txt_email);
         txt_instansi = (TextView) rootView.findViewById(R.id.txt_instansi);
-        txt_edit = (TextView) rootView.findViewById(R.id.txt_edit);
+        btn_edit_profil = (Button) rootView.findViewById(R.id.btn_edit_profil);
 
         try {
             realmHelper = new RealmHelper(ProfilFragment.super.getContext());
@@ -49,7 +51,7 @@ public class ProfilFragment extends Fragment {
             e.printStackTrace();
         }
 
-        txt_edit.setOnClickListener(new View.OnClickListener() {
+        btn_edit_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(getContext(), LoginActivity.class);

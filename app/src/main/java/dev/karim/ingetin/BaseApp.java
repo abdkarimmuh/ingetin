@@ -44,9 +44,10 @@ public class BaseApp extends Application {
                         .addField("instansi", String.class);
 
                 //Tugas
-                schema.create("Tugas")
+                schema.create("Akademik")
                         .addField("judul", String.class)
                         .addField("jenis", String.class)
+                        .addField("option", String.class)
                         .addField("deadline", String.class)
                         .addField("deskripsi", String.class)
                         .addField("done", String.class);

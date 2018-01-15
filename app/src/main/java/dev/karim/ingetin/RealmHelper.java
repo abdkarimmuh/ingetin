@@ -1,7 +1,6 @@
 package dev.karim.ingetin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,11 +9,11 @@ import java.util.ArrayList;
 import dev.karim.ingetin.Model.LainnyaModel;
 import dev.karim.ingetin.Model.OrganisasiModel;
 import dev.karim.ingetin.Model.ProfilModel;
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Model.AkademikModel;
+import dev.karim.ingetin.RealmObject.Akademik;
 import dev.karim.ingetin.RealmObject.Lainnya;
 import dev.karim.ingetin.RealmObject.Organisasi;
 import dev.karim.ingetin.RealmObject.Profil;
-import dev.karim.ingetin.RealmObject.Tugas;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
@@ -29,7 +28,7 @@ public class RealmHelper {
 
     private Realm realm;
     private RealmResults<Organisasi> realmResultOrganisasi;
-    private RealmResults<Tugas> realmResultTugas;
+    private RealmResults<Akademik> realmResultAkademiks;
     private RealmResults<Lainnya> realmResultLainnya;
     private RealmResults<Profil> realmResultProfil;
     public Context context;
@@ -81,21 +80,23 @@ public class RealmHelper {
      *
      * @param judul
      * @param jenis
+     * @param option
      * @param deadline
      * @param deskripsi
      * @param done
      */
-    public void addTugas(String judul, String jenis, String deadline, String deskripsi, String done){
-        Tugas tugas = new Tugas();
-        tugas.setId((int) (System.currentTimeMillis() / 1000));
-        tugas.setJudul(judul);
-        tugas.setJenis(jenis);
-        tugas.setDeadline(deadline);
-        tugas.setDeskripsi(deskripsi);
-        tugas.setDone(done);
+    public void addAkademik(String judul, String jenis, String option, String deadline, String deskripsi, String done){
+        Akademik akademik = new Akademik();
+        akademik.setId((int) (System.currentTimeMillis() / 1000));
+        akademik.setJudul(judul);
+        akademik.setJenis(jenis);
+        akademik.setOption(option);
+        akademik.setDeadline(deadline);
+        akademik.setDeskripsi(deskripsi);
+        akademik.setDone(done);
 
         realm.beginTransaction();
-        realm.copyToRealm(tugas);
+        realm.copyToRealm(akademik);
         realm.commitTransaction();
 
         showLog("Added ; " + judul);
@@ -189,25 +190,26 @@ public class RealmHelper {
 
 
     /**
-     * method mencari semua Tugas
+     * method mencari semua Akademik
      */
-    public ArrayList<TugasModel> findAllTugas(){
-        ArrayList<TugasModel> data = new ArrayList<>();
+    public ArrayList<AkademikModel> findAllAkademik(){
+        ArrayList<AkademikModel> data = new ArrayList<>();
 
-        realmResultTugas = realm.where(Tugas.class).findAll();
-        realmResultTugas.sort("id", Sort.DESCENDING);
-        if (realmResultTugas.size() > 0){
-            showLog("Size : " + realmResultTugas.size());
+        realmResultAkademiks = realm.where(Akademik.class).findAll();
+        realmResultAkademiks.sort("id", Sort.DESCENDING);
+        if (realmResultAkademiks.size() > 0){
+            showLog("Size : " + realmResultAkademiks.size());
 
-            for (int i = 0; i < realmResultTugas.size(); i++) {
-                String judul, jenis, deadline, deskripsi, done;
-                int id = realmResultTugas.get(i).getId();
-                judul = realmResultTugas.get(i).getJudul();
-                jenis = realmResultTugas.get(i).getJenis();
-                deadline = realmResultTugas.get(i).getDeadline();
-                deskripsi = realmResultTugas.get(i).getDeskripsi();
-                done = realmResultTugas.get(i).getDone();
-                data.add(new TugasModel(id, judul, jenis, deadline, deskripsi, done));
+            for (int i = 0; i < realmResultAkademiks.size(); i++) {
+                String judul, jenis, deadline, option, deskripsi, done;
+                int id = realmResultAkademiks.get(i).getId();
+                judul = realmResultAkademiks.get(i).getJudul();
+                jenis = realmResultAkademiks.get(i).getJenis();
+                option = realmResultAkademiks.get(i).getOption();
+                deadline = realmResultAkademiks.get(i).getDeadline();
+                deskripsi = realmResultAkademiks.get(i).getDeskripsi();
+                done = realmResultAkademiks.get(i).getDone();
+                data.add(new AkademikModel(id, judul, jenis, option, deadline, deskripsi, done));
             }
 
         } else {
@@ -300,23 +302,25 @@ public class RealmHelper {
 
 
     /**
-     * method update Tugas
+     * method update Akademik
      *
      * @param id
      * @param judul
      * @param jenis
+     * @param option
      * @param deadline
      * @param deskripsi
      * @param done
      */
-    public void updateTugas(int id, String judul, String jenis, String deadline, String deskripsi, String done){
+    public void updateAkademik(int id, String judul, String jenis, String option, String deadline, String deskripsi, String done){
         realm.beginTransaction();
-        Tugas tugas = realm.where(Tugas.class).equalTo("id", id).findFirst();
-        tugas.setJudul(judul);
-        tugas.setJenis(jenis);
-        tugas.setDeadline(deadline);
-        tugas.setDeskripsi(deskripsi);
-        tugas.setDone(done);
+        Akademik akademik = realm.where(Akademik.class).equalTo("id", id).findFirst();
+        akademik.setJudul(judul);
+        akademik.setJenis(jenis);
+        akademik.setOption(option);
+        akademik.setDeadline(deadline);
+        akademik.setDeskripsi(deskripsi);
+        akademik.setDone(done);
         realm.commitTransaction();
         showLog("Updated : " + judul);
         showToast(judul + " berhasil diupdate.");
@@ -390,13 +394,13 @@ public class RealmHelper {
     }
 
     /**
-     * method menghapus Tugas berdasarkan id
+     * method menghapus Akademik berdasarkan id
      *
      * @param id
      */
-    public void deleteTugas(int id) {
+    public void deleteAkademmik(int id) {
         realm.beginTransaction();
-        RealmResults<Tugas> dataResults = realm.where(Tugas.class).equalTo("id", id).findAll();
+        RealmResults<Akademik> dataResults = realm.where(Akademik.class).equalTo("id", id).findAll();
 
         dataResults.deleteAllFromRealm();
 

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import dev.karim.ingetin.Home.LainnyaFragment;
 import dev.karim.ingetin.Home.OrganisasiFragment;
-import dev.karim.ingetin.Home.TugasFragment;
+import dev.karim.ingetin.Home.AkademikFragment;
 
 /**
  * Created by Karim on 11/17/2017.
@@ -78,7 +78,7 @@ public class TabFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new TugasFragment();
+                case 0 : return new AkademikFragment();
                 case 1 : return new OrganisasiFragment();
                 case 2 : return new LainnyaFragment();
             }
@@ -101,7 +101,7 @@ public class TabFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "Tugas";
+                    return "Akademik";
                 case 1 :
                     return "Organisasi";
                 case 2 :

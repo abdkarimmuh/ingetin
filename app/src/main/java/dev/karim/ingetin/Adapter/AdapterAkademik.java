@@ -1,53 +1,51 @@
 package dev.karim.ingetin.Adapter;
 
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import dev.karim.ingetin.MainActivity;
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Model.AkademikModel;
 import dev.karim.ingetin.R;
-import dev.karim.ingetin.RealmHelper;
 
 /**
  * Created by Karim on 11/17/2017.
  */
 
-public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> {
+public class AdapterAkademik extends RecyclerView.Adapter<AdapterAkademik.ViewHolder> {
     private final OnItemClickListener listener;
-    private ArrayList<TugasModel> tugasModels;
+    private ArrayList<AkademikModel> akademikModels;
 
-    public AdapterTugas(ArrayList<TugasModel> tugasModels, OnItemClickListener listener){
-        this.tugasModels = tugasModels;
+    public AdapterAkademik(ArrayList<AkademikModel> akademikModels, OnItemClickListener listener){
+        this.akademikModels = akademikModels;
         this.listener = listener;
     }
 
     @Override
-    public AdapterTugas.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_tugas, null);
+    public AdapterAkademik.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_akademik, null);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
 
 
     @Override
-    public void onBindViewHolder(final AdapterTugas.ViewHolder holder, final int position) {
-        holder.click(tugasModels.get(position), listener);
-        holder.txt_judul.setText(tugasModels.get(position).getJudul());
-        holder.txt_jenis.setText(tugasModels.get(position).getJenis());
-        holder.txt_deadline.setText(tugasModels.get(position).getDeadline());
+    public void onBindViewHolder(final AdapterAkademik.ViewHolder holder, final int position) {
+        holder.click(akademikModels.get(position), listener);
+        holder.txt_judul.setText(akademikModels.get(position).getJudul());
+        holder.txt_jenis.setText(akademikModels.get(position).getJenis());
+        holder.txt_deadline.setText(akademikModels.get(position).getDeadline());
 
         try {
-            if (tugasModels.get(position).getDone().equals("yes")){
+            if (akademikModels.get(position).getDone().equals("yes")){
                 holder.switch_done.setChecked(true);
             } else {
                 holder.switch_done.setChecked(false);
@@ -60,10 +58,10 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    tugasModels.get(position).setDone("yes");
+                    akademikModels.get(position).setDone("yes");
                     Log.d("You are :", "Checked");
                 } else {
-                    tugasModels.get(position).setDone("no");
+                    akademikModels.get(position).setDone("no");
                     Log.d("You are :", " Not Checked");
                 }
             }
@@ -73,7 +71,7 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return tugasModels.size();
+        return akademikModels.size();
     }
 
 
@@ -90,11 +88,11 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
             switch_done = (Switch) itemView.findViewById(R.id.switch_done);
         }
 
-        public void click(final TugasModel tugasModel, final OnItemClickListener listener) {
+        public void click(final AkademikModel akademikModel, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onClick(tugasModel);
+                    listener.onClick(akademikModel);
                 }
             });
         }
@@ -102,6 +100,6 @@ public class AdapterTugas extends RecyclerView.Adapter<AdapterTugas.ViewHolder> 
 
 
     public interface OnItemClickListener {
-        void onClick(TugasModel item);
+        void onClick(AkademikModel item);
     }
 }

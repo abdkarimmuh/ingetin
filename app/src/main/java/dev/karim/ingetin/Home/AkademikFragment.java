@@ -16,29 +16,29 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import dev.karim.ingetin.Adapter.AdapterTugas;
-import dev.karim.ingetin.AddEdit.EditTugasActivity;
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Adapter.AdapterAkademik;
+import dev.karim.ingetin.AddEdit.EditAkademikActivity;
+import dev.karim.ingetin.Model.AkademikModel;
 import dev.karim.ingetin.R;
-import dev.karim.ingetin.AddEdit.AddTugasActivity;
+import dev.karim.ingetin.AddEdit.AddAkademikActivity;
 import dev.karim.ingetin.RealmHelper;
 
 /**
  * Created by Karim on 11/17/2017.
  */
 
-public class TugasFragment extends Fragment {
+public class AkademikFragment extends Fragment {
 
-    private static final String TAG = "TugasFragment";
+    private static final String TAG = "AkademikFragment";
 
 
     private RecyclerView recyclerView;
     private RealmHelper helper;
-    private ArrayList<TugasModel> data;
+    private ArrayList<AkademikModel> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tugas, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_akademik, container, false);
 
         data = new ArrayList<>();
         helper = new RealmHelper(getContext());
@@ -56,31 +56,32 @@ public class TugasFragment extends Fragment {
      */
     private void setRecyclerView() {
         try {
-            data = helper.findAllTugas();
+            data = helper.findAllAkademik();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        AdapterTugas adapterTugas = new AdapterTugas(data, new AdapterTugas.OnItemClickListener() {
+        AdapterAkademik adapterAkademik = new AdapterAkademik(data, new AdapterAkademik.OnItemClickListener() {
             @Override
-            public void onClick(TugasModel item) {
-                Intent i = new Intent(getContext(), EditTugasActivity.class);
+            public void onClick(AkademikModel item) {
+                Intent i = new Intent(getContext(), EditAkademikActivity.class);
                 i.putExtra("id", item.getId());
                 i.putExtra("judul", item.getJudul());
                 i.putExtra("jenis", item.getJenis());
+                i.putExtra("option", item.getOption());
                 i.putExtra("deadline", item.getDeadline());
                 i.putExtra("deskripsi", item.getDeskripsi());
                 i.putExtra("done", item.getDone());
                 startActivity(i);
             }
         });
-        recyclerView.setAdapter(adapterTugas);
+        recyclerView.setAdapter(adapterAkademik);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         try {
-            data = helper.findAllTugas();
+            data = helper.findAllAkademik();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,8 +105,8 @@ public class TugasFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Toast.makeText(getContext(), "Tugas", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this.getContext(), AddTugasActivity.class);
+                Toast.makeText(getContext(), "Akademik", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this.getContext(), AddAkademikActivity.class);
                 startActivity(intent);
                 break;
         }

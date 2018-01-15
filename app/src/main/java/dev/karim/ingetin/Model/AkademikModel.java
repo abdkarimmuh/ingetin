@@ -4,18 +4,20 @@ package dev.karim.ingetin.Model;
  * Created by Karim on 12/29/2017.
  */
 
-public class TugasModel {
+public class AkademikModel {
     private int id;
     private String judul;
     private String jenis;
+    private String option;
     private String deadline;
     private String deskripsi;
     private String done;
 
-    public TugasModel(int id, String judul, String jenis, String deadline, String deskripsi, String done) {
+    public AkademikModel(int id, String judul, String jenis, String option, String deadline, String deskripsi, String done) {
         this.id = id;
         this.judul = judul;
         this.jenis = jenis;
+        this.option = option;
         this.deadline = deadline;
         this.deskripsi = deskripsi;
         this.done = done;
@@ -43,6 +45,14 @@ public class TugasModel {
 
     public void setJenis(String jenis) {
         this.jenis = jenis;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
     }
 
     public String getDeadline() {

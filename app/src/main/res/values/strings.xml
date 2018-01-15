@@ -16,6 +16,14 @@
         <item>Pengaturan</item>
     </string-array>
 
+    <string name="akademik_options_prompt">Jenis Tugas</string>
+
+    <string-array name="akademik_options_arrays">
+        <item>Tugas</item>
+        <item>Kerja Kelompok</item>
+        <item>Presentasi</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

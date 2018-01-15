@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.karim.ingetin.AddEdit.AddTugasActivity">
+    tools:context="dev.karim.ingetin.AddEdit.AddAkademikActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:id="@+id/edit_text_judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Judul Tugas"
+                    android:hint="Judul"
                     android:inputType="textCapWords" />
             </android.support.design.widget.TextInputLayout>
 
@@ -45,6 +45,14 @@
                     android:hint="Mata Pelajaran / Mata Kuliah"
                     android:inputType="textCapWords" />
             </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinner_option_akademik"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/akademik_options_arrays"
+                android:prompt="@string/akademik_options_prompt" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_deadline"
@@ -88,6 +96,13 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent"
+                    android:textColor="#FFF"
+                    android:text="save" />
 
                 <Button
                     android:id="@+id/btn_delete"
@@ -95,18 +110,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Delete"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="#FFF"
+                    android:backgroundTint="#FFF"
+                    android:textColor="@color/colorAccent"
                     android:visibility="gone"/>
 
-
-                <Button
-                    android:id="@+id/btn_save"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="#FFF"
-                    android:text="save" />
             </LinearLayout>
 
         </LinearLayout>

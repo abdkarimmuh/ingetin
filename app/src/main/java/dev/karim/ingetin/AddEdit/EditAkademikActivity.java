@@ -4,41 +4,46 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 
 import java.util.ArrayList;
 
 import dev.karim.ingetin.MainActivity;
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Model.AkademikModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
-public class EditTugasActivity extends AppCompatActivity {
+public class EditAkademikActivity extends AppCompatActivity {
 
     private int position;
     private Button btn_save, btn_delete;
     private EditText edit_text_judul, edit_text_jenis, edit_text_deadline, edit_text_deskripsi;
     private Switch switch_done;
+    private Spinner spinner_option_akademik;
 
-    private String judul, jenis, deadline, deskripsi, check;
+    private String judul, jenis, deadline, deskripsi, check, option;
 
     private RealmHelper helper;
-    private ArrayList<TugasModel> data;
+    private ArrayList<AkademikModel> data;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_tugas);
+        setContentView(R.layout.activity_add_edit_akademik);
 
-        helper = new RealmHelper(EditTugasActivity.this);
+        helper = new RealmHelper(EditAkademikActivity.this);
         data = new ArrayList<>();
         position = getIntent().getIntExtra("id", 0);
 
         judul = getIntent().getStringExtra("judul");
         jenis = getIntent().getStringExtra("jenis");
+        option = getIntent().getStringExtra("option");
         deadline = getIntent().getStringExtra("deadline");
         deskripsi = getIntent().getStringExtra("deskripsi");
         check = getIntent().getStringExtra("done");
@@ -51,11 +56,24 @@ public class EditTugasActivity extends AppCompatActivity {
         edit_text_deadline = (EditText) findViewById(R.id.edit_text_deadline);
         edit_text_deskripsi = (EditText) findViewById(R.id.edit_text_deskripsi);
         switch_done = (Switch) findViewById(R.id.switch_done);
+        spinner_option_akademik = (Spinner) findViewById(R.id.spinner_option_akademik);
 
         edit_text_judul.setText(judul);
         edit_text_jenis.setText(jenis);
         edit_text_deadline.setText(deadline);
         edit_text_deskripsi.setText(deskripsi);
+
+        try {
+            if (option.equals("Tugas")) {
+                spinner_option_akademik.setSelection(0);
+            } else if (option.equals("Kerja Kelompok")) {
+                spinner_option_akademik.setSelection(1);
+            } else {
+                spinner_option_akademik.setSelection(2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         try {
             if (check.equals("yes")){
@@ -75,9 +93,9 @@ public class EditTugasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //menghapus data dari database
-                helper.deleteTugas(position);
+                helper.deleteAkademmik(position);
 
-                startActivity(new Intent(EditTugasActivity.this, MainActivity.class));
+                startActivity(new Intent(EditAkademikActivity.this, MainActivity.class));
                 finish();
             }
         });
@@ -89,6 +107,7 @@ public class EditTugasActivity extends AppCompatActivity {
                 judul = edit_text_judul.getText().toString();
                 jenis = edit_text_jenis.getText().toString();
                 deadline = edit_text_deadline.getText().toString();
+                option = spinner_option_akademik.getSelectedItem().toString();
                 deskripsi = edit_text_deskripsi.getText().toString();
                 if (switch_done.isChecked()) {
                     check = "yes";
@@ -97,10 +116,12 @@ public class EditTugasActivity extends AppCompatActivity {
                 }
 
                 //update
-                helper.updateTugas(position, judul, jenis, deadline, deskripsi, check);
+                helper.updateAkademik(position, judul, jenis, option, deadline, deskripsi, check);
+
+                Log.v("Tugas : ", option);
 
                 //pindah activity
-                startActivity(new Intent(EditTugasActivity.this, MainActivity.class));
+                startActivity(new Intent(EditAkademikActivity.this, MainActivity.class));
             }
         });
 

@@ -7,11 +7,12 @@ import io.realm.annotations.PrimaryKey;
  * Created by Karim on 12/29/2017.
  */
 
-public class Tugas extends RealmObject {
+public class Akademik extends RealmObject {
     @PrimaryKey
     private int id;
     private String judul;
     private String jenis;
+    private String option;
     private String deadline;
     private String deskripsi;
     private String done;
@@ -38,6 +39,14 @@ public class Tugas extends RealmObject {
 
     public void setJenis(String jenis) {
         this.jenis = jenis;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
     }
 
     public String getDeadline() {

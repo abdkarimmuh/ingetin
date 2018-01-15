@@ -12,7 +12,7 @@ import android.widget.Switch;
 import java.util.ArrayList;
 
 import dev.karim.ingetin.MainActivity;
-import dev.karim.ingetin.Model.TugasModel;
+import dev.karim.ingetin.Model.AkademikModel;
 import dev.karim.ingetin.R;
 import dev.karim.ingetin.RealmHelper;
 
@@ -30,7 +30,7 @@ public class EditLainnyaActivity extends AppCompatActivity {
     private String judul, deadline, deskripsi, check;
 
     private RealmHelper helper;
-    private ArrayList<TugasModel> data;
+    private ArrayList<AkademikModel> data;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

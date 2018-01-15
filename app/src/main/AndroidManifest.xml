@@ -27,6 +27,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:theme="@style/SplashTheme"
+            android:name=".LoginActivity" />
+
+
 
 
 
@@ -34,10 +39,6 @@
             android:name=".Others.TentangKamiActivity"
             android:label="Tentang Kami"
             android:parentActivityName=".MainActivity" />
-
-        <activity
-            android:name=".LoginActivity"
-            android:label="User" />
 
         <activity
             android:name=".Others.PeringatanActivity"
@@ -48,32 +49,32 @@
 
 
         <activity
-            android:name=".AddEdit.AddTugasActivity"
-            android:label="Tambah Tugas"
+            android:name=".AddEdit.AddAkademikActivity"
+            android:label="Tugas"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".AddEdit.AddOrganisasiActivity"
-            android:label="Tambah Organisasi"
+            android:label="Organisasi"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".AddEdit.AddLainnyaActivity"
-            android:label="Tambah Lainnya"
+            android:label="Lainnya"
             android:parentActivityName=".MainActivity" />
 
-        <activity android:name=".AddEdit.EditTugasActivity"
-            android:label="Edit Tugas"
+        <activity android:name=".AddEdit.EditAkademikActivity"
+            android:label="Akademik"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".AddEdit.EditOrganisasiActivity"
-            android:label="Edit Organisasi"
+            android:label="Organisasi"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".AddEdit.EditLainnyaActivity"
-            android:label="Edit Lainnya"
+            android:label="Lainnya"
             android:parentActivityName=".MainActivity" />
 
     </application>
