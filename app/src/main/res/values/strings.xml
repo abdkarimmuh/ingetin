@@ -24,6 +24,14 @@
         <item>Presentasi</item>
     </string-array>
 
+    <string name="organisasi_options_prompt">Jenis Kegiatan</string>
+
+    <string-array name="organisasi_options_arrays">
+        <item>Event</item>
+        <item>Meeting</item>
+        <item>Task</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

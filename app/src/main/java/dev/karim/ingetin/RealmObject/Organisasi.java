@@ -14,6 +14,9 @@ public class Organisasi extends RealmObject {
     private String jenis;
     private String deadline;
     private String deskripsi;
+    private String option;
+    private String sebagai;
+    private String tugas;
     private String presensi;
     private String notulensi;
     private String done;
@@ -56,6 +59,30 @@ public class Organisasi extends RealmObject {
 
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public String getSebagai() {
+        return sebagai;
+    }
+
+    public void setSebagai(String sebagai) {
+        this.sebagai = sebagai;
+    }
+
+    public String getTugas() {
+        return tugas;
+    }
+
+    public void setTugas(String tugas) {
+        this.tugas = tugas;
     }
 
     public String getPresensi() {

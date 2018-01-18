@@ -58,6 +58,9 @@ public class BaseApp extends Application {
                         .addField("jenis", String.class)
                         .addField("deadline", String.class)
                         .addField("deskripsi", String.class)
+                        .addField("option", String.class)
+                        .addField("sebagai", String.class)
+                        .addField("tugas", String.class)
                         .addField("presensi", String.class)
                         .addField("notulensi", String.class)
                         .addField("done", String.class);

@@ -69,6 +69,9 @@ public class OrganisasiFragment extends Fragment {
                 i.putExtra("jenis", item.getJenis());
                 i.putExtra("deadline", item.getDeadline());
                 i.putExtra("deskripsi", item.getDeskripsi());
+                i.putExtra("option", item.getOption());
+                i.putExtra("sebagai", item.getSebagai());
+                i.putExtra("tugas", item.getTugas());
                 i.putExtra("presensi", item.getPresensi());
                 i.putExtra("notulensi", item.getNotulensi());
                 i.putExtra("done", item.getDone());

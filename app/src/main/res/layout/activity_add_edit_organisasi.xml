@@ -75,11 +75,35 @@
                     android:hint="Deskripsi" />
             </android.support.design.widget.TextInputLayout>
 
+            <Spinner
+                android:id="@+id/spinner_option_organisasi"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/organisasi_options_arrays"
+                android:prompt="@string/organisasi_options_prompt" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sebagai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/edit_text_sebagai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Sebagai" />
+            </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_presensi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/edit_text_presensi"
@@ -93,7 +117,8 @@
                 android:id="@+id/input_layout_notulensi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/edit_text_notulensi"
@@ -102,6 +127,26 @@
                     android:inputType="textMultiLine"
                     android:hint="Notulensi" />
             </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_tugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/edit_text_tugas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Tugas" />
+            </android.support.design.widget.TextInputLayout>
+
+            <FrameLayout
+                android:id="@+id/fragment_organisasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <Switch
                 android:padding="15dp"

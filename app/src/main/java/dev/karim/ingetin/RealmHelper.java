@@ -110,17 +110,23 @@ public class RealmHelper {
      * @param jenis
      * @param deadline
      * @param deskripsi
+     * @param option
+     * @param sebagai
+     * @param tugas
      * @param presensi
      * @param notulensi
      * @param done
      */
-    public void addOrganisasi(String judul, String jenis, String deadline, String deskripsi, String presensi, String notulensi, String done){
+    public void addOrganisasi(String judul, String jenis, String deadline, String deskripsi, String option, String sebagai, String tugas, String presensi, String notulensi, String done){
         Organisasi organisasi = new Organisasi();
         organisasi.setId((int) (System.currentTimeMillis() / 1000));
         organisasi.setJudul(judul);
         organisasi.setJenis(jenis);
         organisasi.setDeadline(deadline);
         organisasi.setDeskripsi(deskripsi);
+        organisasi.setOption(option);
+        organisasi.setSebagai(sebagai);
+        organisasi.setTugas(tugas);
         organisasi.setPresensi(presensi);
         organisasi.setNotulensi(notulensi);
         organisasi.setDone(done);
@@ -231,16 +237,19 @@ public class RealmHelper {
             showLog("Size : " + realmResultOrganisasi.size());
 
             for (int i = 0; i < realmResultOrganisasi.size(); i++) {
-                String judul, jenis, deadline, deskripsi, presensi, notulensi, done;
+                String judul, jenis, deadline, deskripsi, option, sebagai, tugas, presensi, notulensi, done;
                 int id = realmResultOrganisasi.get(i).getId();
                 judul = realmResultOrganisasi.get(i).getJudul();
                 jenis = realmResultOrganisasi.get(i).getJenis();
                 deadline = realmResultOrganisasi.get(i).getDeadline();
                 deskripsi = realmResultOrganisasi.get(i).getDeskripsi();
+                option = realmResultOrganisasi.get(i).getOption();
+                sebagai = realmResultOrganisasi.get(i).getSebagai();
+                tugas = realmResultOrganisasi.get(i).getTugas();
                 presensi = realmResultOrganisasi.get(i).getPresensi();
                 notulensi = realmResultOrganisasi.get(i).getNotulensi();
                 done = realmResultOrganisasi.get(i).getDone();
-                data.add(new OrganisasiModel(id, judul, jenis, deadline, deskripsi, presensi, notulensi, done));
+                data.add(new OrganisasiModel(id, judul, jenis, deadline, deskripsi, option, sebagai, tugas, presensi, notulensi, done));
             }
 
         } else {
@@ -334,17 +343,23 @@ public class RealmHelper {
      * @param jenis
      * @param deadline
      * @param deskripsi
+     * @param option
+     * @param sebagai
+     * @param tugas
      * @param presensi
      * @param notulensi
      * @param done
      */
-    public void updateOrganisasi(int id, String judul, String jenis, String deadline, String deskripsi, String presensi, String notulensi, String done){
+    public void updateOrganisasi(int id, String judul, String jenis, String deadline, String deskripsi, String option, String sebagai, String tugas, String presensi, String notulensi, String done){
         realm.beginTransaction();
         Organisasi organisasi = realm.where(Organisasi.class).equalTo("id", id).findFirst();
         organisasi.setJudul(judul);
         organisasi.setJenis(jenis);
         organisasi.setDeadline(deadline);
         organisasi.setDeskripsi(deskripsi);
+        organisasi.setOption(option);
+        organisasi.setSebagai(sebagai);
+        organisasi.setTugas(tugas);
         organisasi.setPresensi(presensi);
         organisasi.setNotulensi(notulensi);
         organisasi.setDone(done);
